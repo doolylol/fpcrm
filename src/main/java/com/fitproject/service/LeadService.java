@@ -20,6 +20,10 @@ public class LeadService {
 		return leadRepository.findAll();
 	}
 	
+	public Iterable<Lead> findAllByDate() {
+		return leadRepository.findAllByOrderByDateDesc();
+	}
+	
 	public Lead findOne(Long id) {
 		return leadRepository.findOne(id);
 	}

@@ -9,28 +9,29 @@
 <body>
 	
 	<div layout:fragment="content">
-		<div class="container">
-			<h1>Hello world!</h1>
-			<table class="table">
-				<thead>
-					<tr>
-						<th>Lead id</th>
-						<th>Lead name</th>
-						<th>Lead description</th>
-						<th>Actions</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="lead : ${leads}">
-						<td th:text="${lead.leadId}">Id</td>
-						<td th:text="${lead.name}">Name</td>
-						<td th:text="${lead.description}">Description</td>
-						<td><a href="#" th:href="@{/lead/} + ${lead.id}">View</a> | <a href="#" th:href="@{/lead/delete/} + ${lead.id}">Delete</a></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
+		<h1>Hello world!</h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Lead id</th>
+					<th>Lead name</th>
+					<th>Lead description</th>
+					<th>Actions</th>
+					<th>Created</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="lead : ${leads}">
+					<td th:text="${lead.leadId}">Id</td>
+					<td th:text="${lead.name}">Name</td>
+					<td th:text="${lead.description}">Description</td>
+					<td><div class="btn-group" role="group"><a href="#" th:href="@{/lead/} + ${lead.id}" class="btn btn-default">View</a> 
+					<a href="#" th:href="@{/lead/delete/} + ${lead.id}" class="btn btn-default">Delete</a></div></td>
+					<td th:text="${#calendars.format(lead.date, 'dd/MM/yyyy')}">Date</td>
+				</tr>
+			</tbody>
+		</table>
+	</div> <!-- End content -->
 	
 </body>
 </html>

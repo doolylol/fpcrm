@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Lead {
 	
@@ -15,6 +17,8 @@ public class Lead {
 	private int leadId;
 	private String name;
 	private String description;
+	
+	@DateTimeFormat (pattern="dd/MM/yyyy")
 	private Date date;
 	
 	public Lead() {

@@ -7,5 +7,7 @@ import com.fitproject.domain.Lead;
 
 @Repository
 public interface LeadRepository extends CrudRepository<Lead, Long> {
+	
+	public Iterable<Lead> findAllByOrderByDateDesc();
 
 }
